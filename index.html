@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charest"UTF-8">
+        <meta name="viewport"
+        contenst="width=device-width,initial-scale=1.0">
+        <title>Railmate| Live Train Tracker</title>
+        <style>
+            *{
+                margin:0;
+                padding:0;
+                box-sizing:border-box;
+                font-family: Arial,sans-serif;
+             }
+        body{
+            background:#f3f6fc;
+        color:#172554;
+            }
+header{
+    background:#071b3b;
+    color:white;
+    padding:22px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:15px;
+}
+.logo{
+    font-size: 30px;
+    font-weight: blod;
+}
+.logo spam{
+    color:38bdf8;
+}
+.badge{
+    background: #12365f;
+padding: 9px 15px;
+border-radius: 20px;
+font-size:13px;
+}
+
+.hero{
+    text-align: center;
+padding: 65px 20px 35px;
+background: linear-gradient(135deg,#071b3b,#124b83);
+color:white;
+}
+ 
+.hero h1 {
+    font-size:clamp(30px,5vw,48px);
+    margin-bottom : 15px;
+}
+
+.hero p{
+    color:#d4e6ff;
+    line-height: 1.7;
+}
+.search-box{
+    max-width: 720px;
+    margin: 30px auto 0;
+    display: flex;
+    background:white ;
+    padding:8px;
+    border-radius: 12px;
+    gap: 8px;
+}
+
+.search-box inpute {
+    flex:1;
+    min-width:0;
+    padding:15px 22px;
+    border: none;
+    outline:none;
+    font-size:16px;
+}
+button {
+    background:#0284c7;
+    color:white;
+    border:none;
+    padding: 15px 22px;
+    border-radius: 9px;
+    font-size: bold;
+    cursor:poniter;
+}
+button:hover {
+    background:#0369a1;
+}
+main {
+    max-width: 1100px;
+    margin:35px auto;
+    padding:0 20px;
+}
+.section-title {
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+.card{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmaz(220px,1fr));
+    gap: 18px;
+}
+.card{
+ background:white;
+ padding:24px;
+ border-radius: 15px;
+ box-shadow: 0 5px 22px #102a4d0d;
+ border: 1px solid #e4ebf5;
+}
+.card .icon{
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+}
+.card p{
+    color:#64748b;
+    line-height: 1.6;
+    font-size:14px;
+
+}
+ 
+.result {
+    display: none;
+    margin-top: 25px;
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    border: 1px solid #dbe5f1;
+}
+.result h2{
+    margin-bottom: 12px;
+}
+.notice {
+    margin-top: 15px;
+    color: #92400e;
+    background: #fff7ed;
+    border-radius: 8px;
+    padding: 13px;
+    line-height: 1.6;
+}
+.route{
+    margin-top: 20px;
+    border-left: 3px solid #0284c7;
+    padding-left: 18px;
+    line-height: 2;
+}
+
+footer {
+    background:#071b3b;
+    color: white;
+    text-align: center;
+    padding: 28px 15px;
+    margin-top: 60px;
+    line-height: 2;
+}
+footer spam {
+    color: #38bdf8;
+    font-weight: bold;
+}
+@media (max-width: 600px) {
+    header{
+        padding: 18px 5%;
+    }
+    .search-box{
+        flex-direction: column;
+    }
+    .search-box button {
+        width: 100%;
+    }
+    .hero{
+        padding-top:45px;
+    }
+}
+</style>
+    </head>
+
+    <body>
+
+        <header>
+
+        <div class="logo">Rail<spam>mate</spam></div>
+        <div class="badge">YOUR TRAIN JUOURNY,SIMPLIFIED</header>
+            <section class="hero">
+                <h1>Track Your Train JUOURNY</h1>
+                <p>Search trains,explore routes and check train running information.</p>
+                <p>All your railways information in one place.</p>
+
+                <div class="search-box">
+                    <input
+                    type="text"
+                    id="trainInput"
+                    placeholder="Enter train number or train name"
+                    >
+                <button onclick="searchTain()">Track Train</button>
+                </div>
+                </section>
+
+                <main>
+                    <h2 class="section-title">Explore RailMate</h2>
+
+                    <div class="cards">
+                        <div class="card">
+                            <div class="icon"></div>
+                            <h3>Live Train Status</h3>
+                            <p>Check a train's current running status when a live data source is cunnected.</p>
+                            </div>
+
+                            <div class="card">      
+                                <div class="icon"></div>
+                                <h3>Station Information</h3>
+                                <p>Find arrival and departure information when reliable train data is available.</p>
+                            </div>
+                            <div class="card">      
+                                <div class="icon"></div>
+                                <h3>Running updates</h3>
+                                <p>Check available train timing and delay information.</p>
+                                </div>
+                                </div>
+
+                                <section class="result" id="result">          
+                                    <h2>Train Search</h2>
+                                    <p id="trainName"></p>
+
+
+                                    <div class="notice"id="notice"></div>
+                                    
+                                    <div class="route">
+                                        <strong>Next step:</strong>
+                                        <p>Connect a verified railway data API to retrieve actual train status,station timings and location.</p>
+                                        </div>
+                                        </section>
+                                        </main>
+
+                                        <footer>
+                                            <div> RailMate_Your JUOURNY,Connected.</div>
+                                            <div>Created with by <span>Bhavi_LM</span></div>
+                                            <div>Train information is shown only when a reliable data source is available.</div>
+                                        </footer>
+
+                                        <script>
+                                            function searchTrain(){
+                                                const input=document.getElementById("trainInput").value.trim();
+                                                const result=ducument.getElementById("result");
+                                                const trainName=document.getElementById("trainName");
+                                                const notice=document.getElementById9("notice");
+
+                                                if(!input){
+                                                    alert("Please enter a train number or train name.");
+                                                    return;
+                                                }
+
+                                                result.style.display="block";
+                                                tranName.textcontent="you searched for:"+inpute;
+
+                                        notice.textContent="This is the first version of RailMate.Actual live location , delay status and station timings will appear after a real railway data APIis connected. No live train data has been retrieved yet.";
+                                            
+                                            
+                                            result.scrolllntoView({behavior:"smooth"});
+                                            }
+
+                                            document.getElementById("trainInput").addEventListener("keydown",function(event){
+                                                if(event.key==="Enter"){
+                                                    searchTrain();
+                                                }
+
+                                            });
+                                            </script>
+
+                                            </body>
+                                            </html>
